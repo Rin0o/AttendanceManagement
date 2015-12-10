@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>Event Details</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>                  
+            <h:panelGrid columns="2">
+                <h:outputLabel for="Name" value="Name: " />
+                <h:outputText 
+                    id="name"
+                    value="#{administratorManager.currentEvent.name}"/>   
+                <h:outputLabel for="Room" value="Room: " />
+                <h:outputText
+                    id="room"  
+                    value="#{administratorManager.currentEvent.room}"/>                     
+                <h:outputLabel for="subject" value="Subject: " />
+                <h:outputText
+                    id="subject"            
+                    value="#{administratorManager.currentEvent.subject}" /> 
+                <h:outputLabel for="manager" value="Manager: " />
+                <h:outputText
+                    id="manager"            
+                    value="#{administratorManager.currentEvent.manager}" /> 
+                <h:outputLabel for="manager" value="Hora:  " />
+                <h:outputText
+                    id="hora"            
+                    value="#{administratorManager.currentEvent.hora}" /> 
+                <h:outputLabel for="date" value="Date: " />
+                <h:outputText
+                    id="date"            
+                    value="#{administratorManager.currentEvent.date}" /> 
+            </h:panelGrid >                       
+
+        </h:form>
+       <h:form>                  
+            <h:commandLink
+                id="logout"
+                value="Logout"
+                action="#{administratorManager.logoutUser}" />
+             
+        </h:form>
+    </body>
+</html>

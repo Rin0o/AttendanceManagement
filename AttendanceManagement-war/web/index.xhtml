@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+           <title>Attendance Management</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1></h1>
+        
+        <h:form>
+         <h:panelGrid columns="3">
+          <p>ID:
+              <h:inputText value="#{administratorManager.id}" id="id" ><f:convertNumber/></h:inputText> 
+
+              <h:message for="username" /></p>
+           
+          <p>Password:
+              <h:inputSecret value="#{administratorManager.pass}" required="true" requiredMessage="*Falta a sua password" id="password"></h:inputSecret>
+              <h:message for="password" /></p>
+             
+             </h:panelGrid>
+
+            <h:outputText value="#{administratorManager.valid}" style="color:red" ></h:outputText>
+        
+    <h:commandButton  id="login" value="Login" action="#{administratorManager.loginUser}"/>
+    
+        </h:form>
+
+        
+
+        <h:form>
+            <h:commandLink value="New Attendant" action="admin_attendants_create?faces-redirect=true"/>
+        </h:form>
+         <h:form>
+            <h:commandLink value="New Event Manager" action="admin_event_manager_create?faces-redirect=true"/>
+        </h:form>
+
+    </h:body>
+
+</html>
+

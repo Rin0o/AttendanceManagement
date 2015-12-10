@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Event Attendants</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:dataTable
+            var="ae"
+            summary="List of Attendants in the Event"
+            value="#{administratorManager.checkedInAttendants}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="Event Attendants" />
+            </f:facet>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name" />
+                    </f:facet>
+                    <h:outputText value="#{ae.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="E-Mail" />
+                    </f:facet>
+                    <h:outputText value="#{ae.email}" />
+                </h:column>  
+                
+             
+                <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                    
+                    
+                <h:form>
+                    <h:commandLink value="Check Out" action="admin_event_details?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.checkOutAttendant(event)}" value="#{ae}" />
+                    </h:commandLink>
+                    
+                </h:form>
+                </h:column> 
+        </h:dataTable>
+        
+        <h:dataTable
+            var="ai"
+            summary="List of Attendants not in Event"
+            value="#{administratorManager.checkedOutAttendants}"
+            rules="all"
+            cellpadding="5">
+
+            <f:facet name="header">
+                <h:outputText value="Event Attendants" />
+            </f:facet>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name" />
+                    </f:facet>
+                    <h:outputText value="#{ai.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="E-Mail" />
+                    </f:facet>
+                    <h:outputText value="#{ai.email}" />
+                </h:column>  
+                
+             
+                <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                    
+                    
+                <h:form>
+                    <h:commandLink value="Check Out" action="admin_event_details?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.checkInAttendant(event)}" value="#{ae}" />
+                    </h:commandLink>
+                    
+                </h:form>
+                </h:column> 
+        </h:dataTable>
+        <h:form>
+            <h:commandLink value="Update" action="admin_event_list?faces-redirect=true">
+                <f:setPropertyActionListener target="#{administratorManager.currentEvent}" value="#{ae}" />
+            </h:commandLink>
+        </h:form>
+        
+    </body>
+</html>

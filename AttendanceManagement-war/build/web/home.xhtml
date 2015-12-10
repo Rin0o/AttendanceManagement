@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Attendance Management</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+  <h:body>
+    
+          <h:dataTable
+            var="attendant"
+            summary="List of all attendants"
+            value="#{administratorManager.allAttendants}"
+            rules="all"
+            cellpadding="5">
+            
+            <f:facet name="header">
+                <h:outputText value="Attendants" />
+            </f:facet>            
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Username" />
+                </f:facet>
+                <h:outputText value="#{attendant.id}" />
+                <!--Falta validar o formato-->
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{attendant.name}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email" />
+                </f:facet>
+                <h:outputText value="#{attendant.email}" />
+            </h:column>                                             
+        </h:dataTable>
+        
+        <br/>
+        <br/>
+        
+        <h:form>
+            <h:commandLink value="New attendat" action="admin_attendants_create?faces-redirect=true"/>
+        </h:form>
+        
+        <h:form>
+        <h:commandLink value="Details" action="attendant_home?faces-redirect=true">
+            <f:setPropertyActionListener target="#{administratorManager.loggedUser}" value="#{user}" />
+        </h:commandLink>
+        </h:form>
+       
+        
+        <br/>
+        <br/>
+        
+        <h:dataTable
+            var="subject"
+            summary="List of all subjects"
+            value="#{administratorManager.allSubjects}"
+            rules="all" 
+            cellpadding="5">
+            
+            <f:facet name="header">
+                <h:outputText value="Subjects" />
+            </f:facet>                        
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Code" />
+                </f:facet>
+                <h:outputText value="#{subject.id}" />
+                <!--Falta validar o formato-->
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name" />
+                </f:facet>
+                <h:outputText value="#{subject.name}" />
+            </h:column>                    
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Actions" />
+                </f:facet>
+                <h:form>
+                    <h:commandLink value="Details" action="admin_subjects_details?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentSubject}" value="#{subject}" />
+                    </h:commandLink>
+            
+                    <h:commandLink value="Manage Students" action="admin_subjects_update?faces-redirect=true">
+                        <f:setPropertyActionListener target="#{administratorManager.currentSubject}" value="#{subject}" />
+                    </h:commandLink>
+            
+                    <h:commandLink value="Remove" actionListener="#{administratorManager.removeSubject}">
+                        <f:param name="subjectId" id="subjectId" value="#{subject.id}" />
+                    </h:commandLink>
+                </h:form>
+            </h:column>                        
+
+        </h:dataTable>
+    </h:body>
+</html>
