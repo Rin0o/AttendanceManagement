@@ -5,6 +5,7 @@
  */
 package entities;
 
+import entities.UserGroup.GROUP;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class Attendant extends User implements Serializable {
     }
 
     public Attendant(long id, String name, String password, String email) {
-        super(id, name, password, email);
+        super(id, name, password, GROUP.Attendant, email);
         subjects = new LinkedList<>();
         events = new LinkedList<>();
     }
