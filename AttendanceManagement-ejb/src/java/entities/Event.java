@@ -42,7 +42,6 @@ public class Event implements Serializable {
     private String name;
     @NotNull
     private String room;
-    @NotNull
     @Temporal(TemporalType.DATE)
     private Date date;
     @NotNull

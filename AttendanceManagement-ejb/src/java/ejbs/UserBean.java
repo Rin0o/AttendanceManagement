@@ -5,7 +5,6 @@
  */
 package ejbs;
 
-import dto.AdministratorDTO;
 import dto.UserDTO;
 import entities.Administrator;
 import entities.Attendant;

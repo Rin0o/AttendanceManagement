@@ -123,7 +123,7 @@ public class AdministratorManager {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        return "admin_user_update";
+        return "Admin/admin_user_update";
     }
     
     public String updateUser() {
@@ -138,7 +138,7 @@ public class AdministratorManager {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        return "admin_user_update";
+        return "Admin/admin_user_update";
     }
     
 
@@ -210,7 +210,7 @@ public class AdministratorManager {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        return "admin_managers_update";
+        return "Admin/admin_managers_update";
     }
 
     public void removeEventManager(ActionEvent event) {
@@ -276,12 +276,12 @@ public class AdministratorManager {
                     newEvent.getWeek(),
                     newEvent.getSubject(),
                     newEvent.getManager());
-            return "admin_event_list?faces-redirect=true";
+            return "Admin/admin_event_list?faces-redirect=true";
                     
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        return "admin_event_list?faces-redirect=true";
+        return "Admin/admin_event_list?faces-redirect=true";
     }
     
     public List<EventDTO> getAllEvents(){
@@ -465,7 +465,7 @@ public class AdministratorManager {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
-        return "admin_administrators_update";
+        return "Admin/admin_administrators_update";
     }
 
     public void removeAdministrator(ActionEvent event) {
@@ -618,7 +618,7 @@ public class AdministratorManager {
             currentEventManager = null;
             currentAdministrator = administratorBean.getAdministrator(ola1);
 
-            return "admin_event_list?faces-redirect=true"; 
+            return "Admin/admin_event_list?faces-redirect=true"; 
 
             
         }else{
@@ -628,12 +628,12 @@ public class AdministratorManager {
               currentEventManager = null;
               currentAttendant = attendantBean.getAttendant(ola1);
               System.out.println("att: " + currentAttendant);
-            return "attendant_home?faces-redirect=true"; } else{
+            return "Attendant/attendant_home?faces-redirect=true"; } else{
           if (loggedUser.getUserType().compareTo("manager")==0) { 
                 currentAdministrator = null;
                 currentAttendant = null;
                 currentEventManager = eventManagerBean.getEventManager(ola1);
-                return "eventmanager_home?faces-redirect=true"; 
+                return "Manager/eventmanager_home?faces-redirect=true"; 
             } 
           }
         }

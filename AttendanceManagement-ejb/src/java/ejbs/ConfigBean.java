@@ -28,10 +28,6 @@ public class ConfigBean {
     @EJB
     private SubjectBean subjectBean;
     @EJB
-
-    private AdministratorBean adminBean;
-    
-
     private AdministratorBean administratorBean;
 
 
@@ -44,7 +40,6 @@ public class ConfigBean {
             administratorBean.create(9149, "admin", "Hugo", "scrub@emailOfScrub.pt");
             administratorBean.create(9137, "admin", "Rino", "rino@email.pt");
 
-            adminBean.create(6666, "Rino", "Rino", "dae.ei.ipleiria@gmail.com");
             attendantBean.create(123, "Manuel", "Manuel", "dae.ei.ipleiria@gmail.com");
             attendantBean.create(1234, "Antonio", "António", "dae.ei.ipleiria@gmail.com");
             attendantBean.create(12345, "Ana", "Ana", "dae.ei.ipleiria@gmail.com");
@@ -61,14 +56,10 @@ public class ConfigBean {
             eventManagerBean.create(8888, "Prof_DAE", "Prof_DAE", "prof_dae.ei.ipleiria@gmail.com");
             eventManagerBean.create(9999, "Nando", "Nando", "prof_nando.ei.ipleiria@gmail.com");
             
-            adminBean.create(6666, "Rino", "Rino", "dae.ei.ipleiria@gmail.com");
-            
             Date date = new Date(2015, 11, 13);
             eventBean.create(7, "Teste", "2.2", date, 5, 6, 2, 8888, true);
             eventBean.create(8, "Exame DAD", "2.6", date, 6, 6, 1, 9999, true);
-            eventBean.create(9, "DAE cenas", "2.2", date, 7, 6, 2, 8888, false);
-            
-            
+            eventBean.create(9, "DAE cenas", "2.2", date, 7, 6, 2, 8888, false);                     
 
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());

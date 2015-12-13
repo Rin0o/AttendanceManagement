@@ -5,7 +5,6 @@
  */
 package ejbs;
 
-import dto.AttendantDTO;
 import dto.SubjectDTO;
 import entities.Attendant;
 import entities.Event;
